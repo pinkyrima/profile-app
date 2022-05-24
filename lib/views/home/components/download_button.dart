@@ -23,13 +23,13 @@ class DownloadButton extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children:  [
-                  Spacer(),
+                  const Spacer(),
                   Text(
                     'Download CV',
                     style: KTextStyle.headline6,
                   ),
-                  Spacer(),
-                  Icon(Icons.download_outlined)
+                  const Spacer(),
+                  const Icon(Icons.download_outlined)
                 ],
               ),
             )));
