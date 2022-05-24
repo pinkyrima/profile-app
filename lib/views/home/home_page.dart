@@ -1,6 +1,4 @@
-import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/main.dart';
 import 'package:portfolio/views/styles/k_colors.dart';
 import 'package:portfolio/views/styles/k_text_style.dart';
 
@@ -8,6 +6,7 @@ import 'components/download_button.dart';
 import 'components/item_list_screen.dart';
 import 'components/selection_item.dart';
 import 'components/social_media_button.dart';
+import 'components/work_status_info.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -194,43 +193,7 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class WorkStatusInfo extends StatelessWidget {
-  final String title;
-  final String subTitle;
-  const WorkStatusInfo({
-    Key? key,required this.title,required this.subTitle,
-  }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-         Text(
-          title,
-          style: const TextStyle(
-              fontSize: 16, fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(
-          height: 5,
-        ),
-        Text(
-          subTitle,textAlign: TextAlign.center,
-          style: TextStyle(
-              fontSize: 16,
-              color: Colors.blueGrey.shade600,
-              fontWeight: FontWeight.w500),
-        ),
-        // Text(
-        //   'work',
-        //   style: TextStyle(
-        //       fontSize: 16,
-        //       color: Colors.blueGrey.shade600,
-        //       fontWeight: FontWeight.w500),
-        // ),
-      ],
-    );
-  }
-}
 
 
 
