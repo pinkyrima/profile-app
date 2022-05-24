@@ -44,7 +44,7 @@ class KTextStyle {
 
   static TextStyle bodyText1 = TextStyle(
     fontSize: 16,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.bold,
     letterSpacing: 0.5,
   );
 

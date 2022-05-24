@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/views/styles/k_colors.dart';
+import 'package:portfolio/views/styles/k_text_style.dart';
 
 class WorkStatusInfo extends StatelessWidget {
   final String title;
   final String subTitle;
+
   const WorkStatusInfo({
-    Key? key,required this.title,required this.subTitle,
+    Key? key,
+    required this.title,
+    required this.subTitle,
   }) : super(key: key);
 
   @override
@@ -13,26 +18,15 @@ class WorkStatusInfo extends StatelessWidget {
       children: [
         Text(
           title,
-          style: const TextStyle(
-              fontSize: 16, fontWeight: FontWeight.bold),
+          style: KTextStyle.bodyText1,
         ),
         const SizedBox(
           height: 5,
         ),
-        Text(
-          subTitle,textAlign: TextAlign.center,
-          style: TextStyle(
-              fontSize: 16,
-              color: Colors.blueGrey.shade600,
-              fontWeight: FontWeight.w500),
-        ),
-        // Text(
-        //   'work',
-        //   style: TextStyle(
-        //       fontSize: 16,
-        //       color: Colors.blueGrey.shade600,
-        //       fontWeight: FontWeight.w500),
-        // ),
+        Text(subTitle,
+            textAlign: TextAlign.center,
+            style: KTextStyle.bodyText1
+                .copyWith(fontWeight: FontWeight.w500, color: KColor.grey)),
       ],
     );
   }

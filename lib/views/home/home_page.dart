@@ -65,14 +65,14 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: _height / 41,
               ),
-               Text(
+              Text(
                 'Gianell Vussy',
                 style: KTextStyle.headline6,
               ),
               SizedBox(
                 height: _height / 273,
               ),
-               Text(
+              Text(
                 'Web Developer',
                 style: KTextStyle.subtitle2,
               ),
@@ -106,11 +106,10 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     width: 20,
                   ),
-                  WorkStatusInfo(title: '7',subTitle: 'Years of\nwork'),
-                  WorkStatusInfo(title: '+124',subTitle: 'Completed\nprojects'),
-                  WorkStatusInfo(title: '96',subTitle: 'Satisfied\ncustomers'),
-
-
+                  WorkStatusInfo(title: '7', subTitle: 'Years of\nwork'),
+                  WorkStatusInfo(
+                      title: '+124', subTitle: 'Completed\nprojects'),
+                  WorkStatusInfo(title: '96', subTitle: 'Satisfied\ncustomers'),
                   SizedBox(
                     width: 20,
                   ),
@@ -163,12 +162,19 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Flexible(
                         flex: 1,
-                        child: SelectionItem(height: _height,color: KColor.white,text: 'Projects',)),
+                        child: SelectionItem(
+                          height: _height,
+                          color: KColor.white,
+                          text: 'Projects',
+                        )),
                     const SizedBox(width: 10),
                     Flexible(
-                      flex: 1,
-                      child: SelectionItem(height: _height,color: KColor.transparent,text: 'Skills',)
-                    ),
+                        flex: 1,
+                        child: SelectionItem(
+                          height: _height,
+                          color: KColor.transparent,
+                          text: 'Skills',
+                        )),
                     const SizedBox(
                       width: 10,
                     ),
@@ -192,9 +198,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-
-
-
-
-

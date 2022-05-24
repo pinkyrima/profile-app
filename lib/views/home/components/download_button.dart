@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/views/styles/k_text_style.dart';
 
 class DownloadButton extends StatelessWidget {
   const DownloadButton({
@@ -21,11 +22,11 @@ class DownloadButton extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children:  [
                   Spacer(),
                   Text(
                     'Download CV',
-                    style: TextStyle(fontSize: 18),
+                    style: KTextStyle.headline6,
                   ),
                   Spacer(),
                   Icon(Icons.download_outlined)

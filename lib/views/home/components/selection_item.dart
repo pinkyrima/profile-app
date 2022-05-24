@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/views/styles/k_text_style.dart';
 
 class SelectionItem extends StatelessWidget {
   const SelectionItem({
@@ -22,8 +23,7 @@ class SelectionItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(15)),
         child:  Text(
           text,
-          style: const TextStyle(
-              fontSize: 18, fontWeight: FontWeight.w500),
+          style: KTextStyle.headline6
         ));
   }
 }
