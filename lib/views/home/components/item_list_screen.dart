@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
 
-import '../../styles/k_colors.dart';
-
 class ItemListScreen extends StatefulWidget {
   const ItemListScreen({
     Key? key,
     required double height,
     required double width,
     required this.imageList,
-  }) : _height = height, _width = width, super(key: key);
+  })  : _height = height,
+        _width = width,
+        super(key: key);
 
   final double _height;
   final double _width;
   final List<String> imageList;
-
 
   @override
   State<ItemListScreen> createState() => _ItemListScreenState();
 }
 
 class _ItemListScreenState extends State<ItemListScreen> {
+  int isInsideIndex = -1;
+
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
@@ -33,23 +34,44 @@ class _ItemListScreenState extends State<ItemListScreen> {
         itemBuilder: (context, index) {
           return MouseRegion(
             cursor: SystemMouseCursors.click,
-            onEnter: (s) {
+            onExit: (e) {
               setState(() {
-               const LinearGradient(colors: [Colors.purple, Colors.blue],
-                 begin: Alignment.bottomLeft,
-                 end: Alignment.topRight,);
+                isInsideIndex = -1;
               });
             },
-            child: Container(
-              height: widget._height / 10,
-              width: widget._width / 9.10,
-              decoration: BoxDecoration(
-                  color: KColor.black87,
-                  image: DecorationImage(
-                      image: AssetImage(widget.imageList[index],),
-
+            onEnter: (s) {
+              setState(() {
+                isInsideIndex = index;
+              });
+            },
+            child: SizedBox(
+              // height: widget._height / 10,
+              // width: widget._width / 9.10,
+              child: Stack(
+                children: [
+                  ClipRRect(
+                      borderRadius: BorderRadius.circular(15),
+                      child: Image.asset(widget.imageList[index], fit: BoxFit.contain,)),
+                  // if(isInsideIndex == index)
+                  Align(
+                      alignment: Alignment.bottomCenter,
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 300),
+                      height: isInsideIndex == index ? widget._height / 15 : 0,
+                      decoration: BoxDecoration(
+                          // color: KColor.black87,
+                          gradient: isInsideIndex == index
+                              ? const LinearGradient(
+                                  colors: [Colors.purple, Colors.blue],
+                                  begin: Alignment.bottomLeft,
+                                  end: Alignment.topRight,
+                                )
+                              : null,
+                          borderRadius: BorderRadius.circular(15)),
+                    ),
                   ),
-                  borderRadius: BorderRadius.circular(15)),
+                ],
+              ),
             ),
           );
         });
