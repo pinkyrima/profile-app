@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/main.dart';
+import 'package:portfolio/views/home/bloc/theme_switch_bloc.dart';
+import 'package:portfolio/views/home/bloc/theme_switch_bloc.dart';
 import 'package:portfolio/views/styles/k_colors.dart';
 import 'package:portfolio/views/styles/k_text_style.dart';
 
@@ -26,12 +29,12 @@ class _HomePageState extends State<HomePage> {
     'assets/images/pc6.jpg',
   ];
 
-  void onStateChanged(bool newState) {
-    setState(() {
-      isDarkModeEnabled.value = newState;
-    });
-    print('$newState');
-  }
+  // void onStateChanged(bool newState) {
+  //   setState(() {
+  //     isDarkModeEnabled.value = newState;
+  //   });
+  //   print('$newState');
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -46,9 +49,15 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: _height / 41,
             ),
-            Switch(
-              value: isDarkModeEnabled.value,
-              onChanged: onStateChanged,
+            BlocBuilder<ThemeSwitchBloc, ThemeSwitchState>(
+              builder: (context, state) {
+                return Switch(
+                  value: (state as ThemeSwitch).isDark,
+                  onChanged: (isDark){
+                    context.read<ThemeSwitchBloc>().add(ThemeSwitchToggleEvent(isDark));
+                  },
+                );
+              },
             ),
             CircleAvatar(
               backgroundColor: KColor.blue,
